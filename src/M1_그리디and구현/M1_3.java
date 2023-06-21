@@ -2,6 +2,7 @@ package M1_그리디and구현;
 
 import java.util.Scanner;
 
+
 public class M1_3 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
