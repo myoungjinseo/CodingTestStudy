@@ -38,9 +38,8 @@ public class M_2667 {
         Arrays.sort(aparts);
         System.out.println(apartNum);
         for (int i = 0; i < aparts.length; i++) {
-            if (aparts[i] == 0) {
+            if (aparts[i] > 0) {
 
-            }else{
                 System.out.println(aparts[i]);
             }
         }
