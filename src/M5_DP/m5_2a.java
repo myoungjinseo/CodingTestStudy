@@ -1,3 +1,4 @@
+// 문제 설명 : 배열에 한 칸 이상을 띄워서 합계의 최대 값을 구해야 하는 문제
 package M5_DP;
 
 import java.util.Scanner;
