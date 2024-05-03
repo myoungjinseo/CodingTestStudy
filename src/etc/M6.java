@@ -10,9 +10,6 @@ public class M6 {
         int answer = 0;
         int num = food_times.length-1;
         int sum = Arrays.stream(food_times).sum();
-        if (num < 1 || num >2000 || k < 1 || k >2000000){
-            return -1;
-        }
         if( sum < k ){
             return -1;
         }
@@ -29,7 +26,7 @@ public class M6 {
                 food_times[answer - 1] -= 1;
                 i++;
             }
-            if (cnt > 100000000) {
+            if (cnt > 2000000) {
                 return -1;
             }
         }
