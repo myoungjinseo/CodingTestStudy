@@ -1,26 +1,31 @@
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.Queue;
+import java.util.List;
+import java.util.ArrayList;
+
 class Solution {
     public int[] solution(int[] progresses, int[] speeds) {
-        ArrayDeque<Integer> queue = new ArrayDeque<>();
-        int n = progresses.length;
-        int[] answer = new int[n];
-        for(int i = 0; i < n; i++){
-            answer[i] = (int) Math.ceil((100.0 - progresses[i]) / speeds[i]);
+        Queue<Integer> queue = new ArrayDeque<>();
+        List<Integer> answer = new ArrayList<>();
+        for(int i = 0; i < progresses.length; i++){
+            int a = (100 - progresses[i]) / speeds[i];
+            if((100 - progresses[i]) % speeds[i] != 0 && (100 - progresses[i]) / speeds[i] > 0)
+                a++;
+            queue.add(a);
         }
-        int cnt = 0;
-        int maxDay = answer[0];
-        
-        for(int i = 0; i < n; i++){
-            if(answer[i] <= maxDay){
-                cnt++;
+        int b = queue.poll();
+        int cnt = 1;
+        while(!queue.isEmpty()){
+            int c = queue.poll();
+            if(b < c){
+                answer.add(cnt);
+                b = c;
+                cnt = 0;
             }
-            else {
-                queue.addLast(cnt);
-                cnt = 1;
-                maxDay = answer[i];
-            }
+            cnt++;
         }
-        queue.add(cnt);
-        return queue.stream().mapToInt(Integer::intValue).toArray();
+        if(cnt > 0)
+            answer.add(cnt);
+        return answer.stream().mapToInt(Integer::intValue).toArray();
     }
 }
