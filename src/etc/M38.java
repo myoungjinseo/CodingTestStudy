@@ -1,34 +1,31 @@
 package etc;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
-class M37 {
+class M38 {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int input = Integer.parseInt(br.readLine());
-        int answer = 0;
+        int maxVal = 0, minVal = 100000;
+        String maxName = "", minName = "";
+
         for(int i = 0; i < input; i++){
             StringTokenizer st = new StringTokenizer(br.readLine());
-            int a = Integer.parseInt(st.nextToken());
             String s = st.nextToken();
-            int b = Integer.parseInt(st.nextToken());
+            int a = Integer.parseInt(st.nextToken());
 
-            switch(s){
-                case "+" :
-                    answer += a + b;
-                    break;
-                case "-" :
-                    answer += a - b;
-                    break;
-                case "*" :
-                    answer += a * b;
-                    break;
-                case "/" :
-                    answer += a / b;
-                    break;
+            if(maxVal < a){
+                maxVal = a;
+                maxName = s;
+            }
+            if(minVal > a){
+                minVal = a;
+                minName = s;
             }
         }
-        System.out.println(answer);
+        System.out.println(maxName + " " + maxVal);
+        System.out.println(minName + " " + minVal);
     }
 }
