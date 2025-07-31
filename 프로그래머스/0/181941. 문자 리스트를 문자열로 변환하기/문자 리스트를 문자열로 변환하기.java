@@ -1,8 +1,8 @@
-import java.util.stream.Collectors;
 import java.util.*;
+import java.util.stream.Collectors;
 
 class Solution {
-    public static String solution(String[] strlist) {
-        return Arrays.stream(strlist).collect(Collectors.joining(""));
+    public String solution(String[] arr) {
+        return Arrays.stream(arr).collect(Collectors.joining(""));
     }
 }
