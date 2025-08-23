@@ -1,31 +1,29 @@
-import java.util.ArrayDeque;
-import java.util.Queue;
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 
 class Solution {
     public int[] solution(int[] progresses, int[] speeds) {
         Queue<Integer> queue = new ArrayDeque<>();
         List<Integer> answer = new ArrayList<>();
         for(int i = 0; i < progresses.length; i++){
-            int a = (100 - progresses[i]) / speeds[i];
-            if((100 - progresses[i]) % speeds[i] != 0 && (100 - progresses[i]) / speeds[i] > 0)
-                a++;
-            queue.add(a);
+            int a = (100-progresses[i]) /speeds[i];
+            if((100-progresses[i]) % speeds[i] == 0)
+                queue.add(a);
+            else
+                queue.add(a + 1);
         }
-        int b = queue.poll();
         int cnt = 1;
-        while(!queue.isEmpty()){
-            int c = queue.poll();
-            if(b < c){
+        int b = queue.poll();
+        while (!queue.isEmpty()) {
+            if(b >= queue.peek()){
+                queue.poll();
+                cnt++;
+            } else {
+                b = queue.poll();
                 answer.add(cnt);
-                b = c;
-                cnt = 0;
+                cnt = 1;
             }
-            cnt++;
         }
-        if(cnt > 0)
-            answer.add(cnt);
+        answer.add(cnt);
         return answer.stream().mapToInt(Integer::intValue).toArray();
     }
 }
