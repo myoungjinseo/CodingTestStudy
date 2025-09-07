@@ -1,16 +1,19 @@
 class Solution {
     public int solution(int n) {
         int answer = 0;
+        
         for(int i = 1; i <= n; i++){
-            int result = 0;
+            int num = 0;
             for(int j = i; j <= n; j++){
-                result += j;
-                if(result > n)
-                    break;
-                if(result == n)
+                num += j;
+                if(num == n){
                     answer++;
+                    break;
+                }
                 
-                    
+                if(num > n){
+                    break;
+                }
             }
         }
         return answer;
