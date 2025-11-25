@@ -1,14 +1,20 @@
 class Solution {
-    public static int[] solution(String s) {
-        int transforms = 0;
-        int removedZeros = 0;
-
-        while(!s.equals("1")){
-            String convertedString = s.replaceAll("0","");
-            removedZeros += s.length() - convertedString.length();
-            transforms++;
-            s = Integer.toBinaryString(convertedString.length());
+    public int[] solution(String s) {
+        int[] answer = new int[2];
+ 
+        while(s.length() > 1) {
+ 
+            int cntOne = 0;
+            for(int i=0; i<s.length(); i++) {
+ 
+                if(s.charAt(i) == '0') answer[1]++;
+                else cntOne++;
+            }
+ 
+            s = Integer.toBinaryString(cntOne);
+            answer[0]++;
         }
-        return new int[]{transforms,removedZeros};
+ 
+        return answer;
     }
 }
