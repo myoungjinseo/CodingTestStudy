@@ -3,7 +3,7 @@
 # 입력 예시
 # a1
 # 출력 예시
-# 2
+# 2 
 data = input()
 row = int(data[1])
 column = int(ord(data[0])) - int(ord('a')) + 1
