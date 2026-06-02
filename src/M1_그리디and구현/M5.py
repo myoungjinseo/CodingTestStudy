@@ -5,7 +5,7 @@
 # R R R U D D
 # 출력 예시 
 # 3 4  
-
+ 
 n = int(input())
 
 plans = input().split()
