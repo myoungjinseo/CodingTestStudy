@@ -6,7 +6,7 @@ def factorial_iterative(n):
     return result
 
 
-# 재귀문 
+# 재귀문  
 def factorial_recursive(n):
     if n <= 1:
         return 1
