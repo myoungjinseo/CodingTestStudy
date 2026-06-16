@@ -16,6 +16,7 @@ d = [[0] * m for _ in range(n)]
 
 # 현재 캐릭터의 x 좌표 y좌표 방향을 입력받기
 x,y,direction = map(int,input().split())
+d[x][y] = 1
 
 # 전체 맵 정보를 입력받기
 array = []
@@ -63,6 +64,6 @@ while True:
         # 뒤가 바다로 막혀있는 경우
         else:
             break
-        turn_left = 0
+        turn_time = 0
 
 print(count)
