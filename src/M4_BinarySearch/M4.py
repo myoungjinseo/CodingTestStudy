@@ -19,4 +19,4 @@ m = int(input())
 arr = list(map(int, input().split()))
 
 for i in range(m):
-    print(binary_search(array, arr[i], 0, n), end = ' ')
+    print(binary_search(array, arr[i], 0, n - 1), end = ' ')
